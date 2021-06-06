@@ -2318,10 +2318,10 @@
   dependencies:
     defer-to-connect "^1.0.1"
 
-"@tokenbest/uikit@^0.34.0":
-  version "0.34.0"
-  resolved "https://registry.yarnpkg.com/@tokenbest/uikit/-/uikit-0.34.0.tgz#53b9515d019387ce10c11f55a4c0b0d168e85cd5"
-  integrity sha512-6Auyet3d7YaSeShC9uDKBpbJmpmvWrYYUgSdE+sbcfxJu3vEpvqfc719jBzP6HIodfWz7CqiZ6ECuClfyU1EZA==
+"@tokenbest/uikit@^0.34.2":
+  version "0.34.2"
+  resolved "https://registry.yarnpkg.com/@tokenbest/uikit/-/uikit-0.34.2.tgz#19dad0a2eea87dcc32cb51ab8cd1ac79c9bd95f2"
+  integrity sha512-gjcmbrKmtwVYXEkMzx1DJyclfpE6Lp/p3O0gmiTkUIm8KxXdu1cj0OTPkpqq152j6owoPb+ud/8GrX+CXWfrww==
   dependencies:
     "@popperjs/core" "^2.9.2"
     "@types/lodash" "^4.14.168"

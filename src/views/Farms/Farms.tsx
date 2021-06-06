@@ -176,10 +176,15 @@ const Farms: React.FC = () => {
         if(farm.quoteToken.symbol==="CAKE"){
           quoteTokenPriceUsd = 0.03
         }
-        const totalLiquidity = new BigNumber(farm.lpTotalInQuoteToken).times(quoteTokenPriceUsd)
-        console.log(`farms.apr--->token::${farm.quoteToken.symbol}::price::${prices[farm.quoteToken.symbol.toLowerCase()]}::totallp::${farm.lpTotalInQuoteToken}`)
-        const apr = isActive ? getFarmApr(farm.poolWeight, cakePrice, totalLiquidity) : 0
-        const apy = isActive ? getFarmApy(farm.poolWeight, cakePrice, totalLiquidity) : 0
+        // const totalLiquidity = new BigNumber(farm.lpTotalInQuoteToken).times(quoteTokenPriceUsd)
+        let totalLiquidity = new BigNumber(farm.tokenAmountInLp).times(cakePrice)
+        let stakeLiquidity = new BigNumber(farm.tokenAmount).times(cakePrice)
+        if(farm.pid>0){
+          totalLiquidity = totalLiquidity.times(2);
+          stakeLiquidity = stakeLiquidity.times(2);
+        }
+        const apr = isActive ? getFarmApr(farm.poolWeight, cakePrice, stakeLiquidity) : 0
+        const apy = isActive ? getFarmApy(farm.poolWeight, cakePrice, stakeLiquidity) : 0
 
         console.log(`farms.apr-->${apr}-->${apy}`)
 

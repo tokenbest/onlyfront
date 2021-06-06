@@ -16,14 +16,13 @@ const TotalValueLockedCard = () => {
   const data = useGetStats()
   // const tvl = data ? data.total_value_locked_all.toLocaleString('en-US', { maximumFractionDigits: 0 }) : null
   const tvl = useTvl().toNumber().toLocaleString('en-US', { maximumFractionDigits: 0 })
-
   return (
     <StyledTotalValueLockedCard>
       <CardBody>
         <Heading size="lg" mb="24px">
           {TranslateString(762, 'Total Value Locked (TVL)')}
         </Heading>
-        {data ? (
+        {tvl ? (
           <>
             <Heading size="xl">{`$${tvl}`}</Heading>
             <Text color="textSubtle">{TranslateString(764, 'Across all LPs')}</Text>

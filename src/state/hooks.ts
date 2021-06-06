@@ -66,15 +66,14 @@ export const useFarmFromSymbol = (lpSymbol: string): Farm => {
 }
 
 export const useTvl = (): BigNumber => {
-  const prices = useGetApiPrices()
+  const cakePrice = usePriceCakeBusd()
+  const prices = useGetApiPrices() 
   let tvl:BigNumber = new BigNumber(0);
   const busdfarm = useFarmFromPid(1);
   const bnbfarm = useFarmFromPid(2);
-  if(prices!==null){  
-    tvl = tvl.plus(new BigNumber(busdfarm.lpTotalInQuoteToken).times(1));  
-    tvl = tvl.plus(new BigNumber(bnbfarm.lpTotalInQuoteToken).times(prices[bnbfarm.quoteToken.symbol.toLowerCase()]));
-  }
-  
+
+  tvl = new BigNumber(busdfarm.tokenAmountInLp).times(cakePrice).times(2);
+  tvl = tvl.plus(new BigNumber(bnbfarm.tokenAmountInLp).times(cakePrice).times(2));
   return tvl;
 }
 
@@ -224,14 +223,15 @@ export const useGetApiPrice = (token: string) => {
 
 export const usePriceCakeBusd = (): BigNumber => {
   const ZERO = new BigNumber(0)
-  const cakeBnbFarm = useFarmFromPid(1)
-  const bnbBusdFarm = useFarmFromPid(2)
+  // const cakeBnbFarm = useFarmFromPid(1)
+  // const bnbBusdFarm = useFarmFromPid(2)
+  const otBusdFarm = useFarmFromPid(1)
 
-  const bnbBusdPrice = bnbBusdFarm.tokenPriceVsQuote ? new BigNumber(1).div(bnbBusdFarm.tokenPriceVsQuote) : ZERO
-  const cakeBusdPrice = cakeBnbFarm.tokenPriceVsQuote ? bnbBusdPrice.times(cakeBnbFarm.tokenPriceVsQuote) : ZERO
+  // const bnbBusdPrice = bnbBusdFarm.tokenPriceVsQuote ? new BigNumber(1).div(bnbBusdFarm.tokenPriceVsQuote) : ZERO
+  // const cakeBusdPrice = cakeBnbFarm.tokenPriceVsQuote ? bnbBusdPrice.times(cakeBnbFarm.tokenPriceVsQuote) : ZERO
 
   // return cakeBusdPrice
-  return new BigNumber(0.03);
+  return otBusdFarm.tokenPriceVsQuote ? new BigNumber(otBusdFarm.tokenPriceVsQuote) : ZERO;
 }
 
 // Block
