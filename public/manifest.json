@@ -1,7 +1,7 @@
 {
-  "short_name": "PancakeSwap",
-  "name": "PancakeSwap",
-  "description": "Farm CAKE with Pancake LP Tokens",
+  "short_name": "PartyChain",
+  "name": "PartyChain",
+  "description": "Farm PartyChain Token with Pancake LP Tokens",
   "icons": [
     {
       "src": "favicon.ico",

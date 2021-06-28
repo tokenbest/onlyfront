@@ -51,13 +51,6 @@ export const MobileColumnSchema: ColumnsDefTypes[] = [
     label: 'APR',
   },
   {
-    id: 7,
-    name: 'apy',
-    translationId: 736,
-    sortable: true,
-    label: 'APY',
-  },
-  {
     id: 6,
     name: 'details',
     translationId: 999,

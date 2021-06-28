@@ -186,8 +186,6 @@ const Farms: React.FC = () => {
         const apr = isActive ? getFarmApr(farm.poolWeight, cakePrice, stakeLiquidity) : 0
         const apy = isActive ? getFarmApy(farm.poolWeight, cakePrice, stakeLiquidity) : 0
 
-        console.log(`farms.apr-->${apr}-->${apy}`)
-
         return { ...farm, apr, apy, liquidity: totalLiquidity }
       })
 
@@ -293,7 +291,7 @@ const Farms: React.FC = () => {
 
     return (
       <div>
-        <FlexLayout>
+        {/* <FlexLayout>
           <Route exact path={`${path}`}>
             {farmsStaked.map((farm) => (
               <FarmCard key={farm.pid} farm={farm} cakePrice={cakePrice} account={account} removed={false} />
@@ -304,7 +302,7 @@ const Farms: React.FC = () => {
               <FarmCard key={farm.pid} farm={farm} cakePrice={cakePrice} account={account} removed />
             ))}
           </Route>
-        </FlexLayout>
+        </FlexLayout> */}
       </div>
     )
   }
@@ -315,14 +313,14 @@ const Farms: React.FC = () => {
 
   return (
     <>
-      <Header>
+      {/* <Header>
         <Heading as="h1" size="xxl" color="secondary" mb="24px">
           {TranslateString(674, 'Farms')}
         </Heading>
         <Heading size="lg" color="text">
           {TranslateString(999, 'Stake Liquidity Pool (LP) tokens to earn.')}
         </Heading>
-      </Header>
+      </Header> */}
       <Page>
         {/* <ControlContainer>
           <ViewControls>
@@ -369,7 +367,6 @@ const Farms: React.FC = () => {
           </FilterContainer>
         </ControlContainer> */}
         {renderContent()}
-        <StyledImage src="/images/3dpan.png" alt="Pancake illustration" width={120} height={103} />
       </Page>
     </>
   )

@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react'
 import { useWeb3React } from '@web3-react/core'
-import { Button } from '@tokenbest/uikit'
+import { Button, useMatchBreakpoints } from '@tokenbest/uikit'
 import BigNumber from 'bignumber.js'
 import { FarmWithStakedValue } from 'views/Farms/components/FarmCard/FarmCard'
 import { getBalanceNumber } from 'utils/formatBalance'
@@ -29,6 +29,8 @@ const HarvestAction: React.FunctionComponent<FarmWithStakedValue> = ({ pid, user
   const { onReward } = useHarvest(pid)
   const { onComp } = useHarvestComp(pid)
   const TranslateString = useI18n()
+
+  const { isXl, isXs } = useMatchBreakpoints()
 
   const { countUp, update } = useCountUp({
     start: 0,
@@ -65,17 +67,20 @@ const HarvestAction: React.FunctionComponent<FarmWithStakedValue> = ({ pid, user
         >
           {TranslateString(562, 'Harvest')}
         </Button>
-        <Button
-          disabled={!earnings || pendingTx || !account}
-          onClick={async () => {
-            setPendingTx(true)
-            await onComp()
-            setPendingTx(false)
-          }}
-          ml="4px"
-        >
-          {TranslateString(562, 'Compound')}
-        </Button>
+        {isXl?
+          <Button
+            disabled={!earnings || pendingTx || !account}
+            onClick={async () => {
+              setPendingTx(true)
+              await onComp()
+              setPendingTx(false)
+            }}
+            ml="4px"
+          >
+            {TranslateString(562, 'Compound')}
+          </Button>
+          : null
+        }
       </ActionContent>
     </ActionContainer>
   )
