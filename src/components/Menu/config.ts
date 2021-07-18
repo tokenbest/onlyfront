@@ -1,11 +1,11 @@
 import { MenuEntry, menuStatus } from '@tokenbest/uikit'
 
 const config: MenuEntry[] = [
-  {
-    label: 'Home',
-    icon: 'HomeIcon',
-    href: '/',
-  },
+  // {
+  //   label: 'Home',
+  //   icon: 'HomeIcon',
+  //   href: '/',
+  // },
   // {
   //   label: 'Trade',
   //   icon: 'TradeIcon',

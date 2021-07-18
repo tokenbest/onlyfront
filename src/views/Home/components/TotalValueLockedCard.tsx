@@ -6,9 +6,9 @@ import { useGetStats } from 'hooks/api'
 import { useTvl } from 'state/hooks'
 
 const StyledTotalValueLockedCard = styled(Card)`
+  width:100%; 
   align-items: center;
   display: flex;
-  flex: 1;
 `
 
 const TotalValueLockedCard = () => {
@@ -18,14 +18,14 @@ const TotalValueLockedCard = () => {
   const tvl = useTvl().toNumber().toLocaleString('en-US', { maximumFractionDigits: 0 })
   return (
     <StyledTotalValueLockedCard>
-      <CardBody>
-        <Heading size="lg" mb="24px">
+      <CardBody style={{ width: '100%', height: '100%', padding: '55px 0 0 65px' }}>
+        <Heading size="lg" mb="24px" style={{ fontSize: '24px' }}>
           {TranslateString(762, 'Total Value Locked (TVL)')}
         </Heading>
         {tvl ? (
           <>
-            <Heading size="xl">{`$${tvl}`}</Heading>
-            <Text color="textSubtle">{TranslateString(764, 'Across all LPs')}</Text>
+            <Heading size="xl" mb="24px">{`$${tvl}`}</Heading>
+            <Text color="#3D6BF3">{TranslateString(764, 'Across all LPs')}</Text>
           </>
         ) : (
           <>

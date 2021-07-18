@@ -8,9 +8,10 @@ export interface EarnedProps {
 }
 
 const Amount = styled.span<{ earned: number }>`
-  color: ${({ earned, theme }) => (earned ? theme.colors.text : theme.colors.textDisabled)};
+  color: #3D6BF3;
   display: flex;
   align-items: center;
+  font-size:20px;
 `
 
 const Earned: React.FunctionComponent<EarnedProps> = ({ earnings }) => {

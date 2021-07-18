@@ -1,3 +1,11 @@
+/*
+ * @Author: your name
+ * @Date: 2021-07-08 12:27:41
+ * @LastEditTime: 2021-07-08 15:17:55
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \onlyfront\src\views\Farms\components\FarmTable\FarmTable.tsx
+ */
 import React, { useRef } from 'react'
 import styled from 'styled-components'
 import { useTable, Button, ChevronUpIcon, ColumnType } from '@tokenbest/uikit'
@@ -14,14 +22,19 @@ export interface ITableProps {
 const Container = styled.div`
   filter: ${({ theme }) => theme.card.dropShadow};
   width: 100%;
-  background: ${({ theme }) => theme.card.background};
   border-radius: 16px;
-  margin: 16px 0px;
+  margin: 0px;
+  background:url('/images/slices/table-bg.png') no-repeat;
+  background-size:100% 100%;
+  min-height: 374px;
+  padding-top:20px;
 `
 
 const TableWrapper = styled.div`
   overflow: visible;
-
+  min-height: 374px;
+  background:url('/images/slices/dong.png') no-repeat center -20px;
+  background-size:348px 338px;
   &::-webkit-scrollbar {
     display: none;
   }
@@ -33,13 +46,15 @@ const StyledTable = styled.table`
   border-radius: 4px;
   margin-left: auto;
   margin-right: auto;
-  width: 100%;
+  width: 90%;
 `
 
 const TableBody = styled.tbody`
+
   & tr {
+    height:120px;
     td {
-      font-size: 16px;
+      font-size: 24px;
       vertical-align: middle;
     }
   }

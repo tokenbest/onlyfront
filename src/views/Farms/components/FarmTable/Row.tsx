@@ -39,16 +39,16 @@ const CellInner = styled.div`
   display: flex;
   width: 100%;
   align-items: center;
+  justify-content:center;
   padding-right: 8px;
-
   ${({ theme }) => theme.mediaQueries.xl} {
     padding-right: 32px;
+    font-size:24px;
   }
 `
-
 const StyledTr = styled.tr`
   cursor: pointer;
-  border-bottom: 2px solid ${({ theme }) => theme.colors.borderColor};
+  border-bottom: 2px solid #29469B;
 `
 
 const EarnedMobileCell = styled.td`
@@ -127,7 +127,7 @@ const Row: React.FunctionComponent<RowProps> = (props) => {
                       <CellLayout
                         label={TranslateString(tableSchema[columnIndex].translationId, tableSchema[columnIndex].label)}
                       >
-                        {React.createElement(cells[key], props[key])}
+                        <div class-name="abc">{React.createElement(cells[key], props[key])}</div>
                       </CellLayout>
                     </CellInner>
                   </td>
@@ -177,7 +177,7 @@ const Row: React.FunctionComponent<RowProps> = (props) => {
       {handleRenderRow()}
       {actionPanelToggled && details && (
         <tr>
-          <td colSpan={6}>
+          <td colSpan={8}>
             <ActionPanel {...props} />
           </td>
         </tr>

@@ -55,7 +55,7 @@ const RightWrapper = styled.div`
 
   ${({ theme }) => theme.mediaQueries.sm} {
     margin-top: 0;
-    padding-left: 24px;
+    padding-left: 0;
   }
 
   ${({ theme }) => theme.mediaQueries.lg} {

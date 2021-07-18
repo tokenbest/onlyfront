@@ -1,5 +1,4 @@
 import React, { useContext } from 'react'
-// import { Menu as UikitMenu } from '@tokenbest/uikit'
 import { Menu as UikitMenu } from '@tokenbest/uikit'
 import { useWeb3React } from '@web3-react/core'
 import { allLanguages } from 'config/localisation/languageCodes'
@@ -17,6 +16,10 @@ const Menu = (props) => {
   const cakePriceUsd = usePriceCakeBusd()
   const { profile } = useProfile()
 
+  console.log(account);
+  console.log(toggleTheme);
+  console.log(props);
+  
   return (
     <UikitMenu
       account={account}
@@ -29,13 +32,6 @@ const Menu = (props) => {
       setLang={setSelectedLanguage}
       cakePriceUsd={cakePriceUsd.toNumber()}
       links={config}
-      // profile={{
-      //   username: profile?.username,
-      //   image: profile?.nft ? `/images/nfts/${profile.nft?.images.sm}` : undefined,
-      //   profileLink: '/profile',
-      //   noProfileLink: '/profile',
-      //   showPip: !profile?.username,
-      // }}
       {...props}
     />
   )

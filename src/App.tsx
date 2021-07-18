@@ -85,7 +85,6 @@ const App: React.FC = () => {
             <Route path="/competition">
               <TradingCompetition />
             </Route>
-            {/* Redirect */}
             <Route path="/staking">
               <Redirect to="/pools" />
             </Route>
@@ -95,13 +94,12 @@ const App: React.FC = () => {
             <Route path="/nft">
               <Redirect to="/collectibles" />
             </Route>
-            {/* 404 */}
             <Route component={NotFound} />
           </Switch>
         </SuspenseWithChunkError>
+     
       </Menu>
       <EasterEgg iterations={2} />
-      {/* <ToastListener /> */}
       <GlobalCheckBullHiccupClaimStatus />
     </Router>
   )

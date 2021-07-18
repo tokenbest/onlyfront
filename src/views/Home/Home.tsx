@@ -7,6 +7,7 @@ import Page from 'components/layout/Page'
 import FarmStakingCard from 'views/Home/components/FarmStakingCard'
 import LotteryCard from 'views/Home/components/LotteryCard'
 import CakeStats from 'views/Home/components/CakeStats'
+import ShareCard from 'views/Home/components/ShareCard'
 import TotalValueLockedCard from 'views/Home/components/TotalValueLockedCard'
 import EarnAPYCard from 'views/Home/components/EarnAPYCard'
 import EarnAssetCard from 'views/Home/components/EarnAssetCard'
@@ -38,24 +39,30 @@ const Hero = styled.div`
 `
 
 const Cards = styled(BaseLayout)`
-  align-items: stretch;
-  justify-content: stretch;
+  align-items: center;
+  justify-content:space-between;
   margin-bottom: 32px;
+  height:374px;
+  display:flex;
+  padding:0 30px;
+  background:url('/images/slices/table-bg.png') no-repeat;
+  background-size:100% 100%;
+  grid-gap:0;
 
   & > div {
-    grid-column: span 6;
-    width: 100%;
+   width:444px;
   }
 
   ${({ theme }) => theme.mediaQueries.sm} {
     & > div {
-      grid-column: span 8;
     }
   }
 
   ${({ theme }) => theme.mediaQueries.lg} {
     & > div {
-      grid-column: span 6;
+      background:url('/images/slices/card.png') no-repeat;
+      background-size:100% 100%;
+      height:267px;
     }
   }
 `
@@ -104,11 +111,11 @@ const Home: React.FC = () => {
           <WinCard />
         </CTACards> */}
         <Cards>
+          <ShareCard />
           <CakeStats />
           <TotalValueLockedCard />
         </Cards>
       </div>
-      
     </Page>
   )
 }

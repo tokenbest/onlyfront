@@ -22,14 +22,14 @@ const H2SizeStyles = (theme) => `
 `
 
 const sharedStyles = (props) => `
+  font-Size:50px;
   color: ${props.textColor ? props.textColor : '#ffffff'};
   background:  ${props.background ? props.background : 'linear-gradient(#7645d9 0%, #452a7a 100%)'};
   background-clip: text;
   -webkit-background-clip: text;
-  ${
-    props.fill
-      ? `-webkit-text-fill-color: transparent;`
-      : `-webkit-text-stroke: 4px transparent;
+  ${props.fill
+    ? `-webkit-text-fill-color: transparent;`
+    : `-webkit-text-stroke: 4px transparent;
        text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);`
   }
 `
@@ -45,12 +45,12 @@ interface HeadingProps {
   fill?: boolean
 }
 
-export const Heading1Text = styled(Heading)<HeadingProps>`
+export const Heading1Text = styled(Heading) <HeadingProps>`
   ${({ theme }) => H1SizeStyles(theme)}
   ${(props) => sharedStyles(props)}
 `
 
-export const Heading2Text = styled(Heading)<HeadingProps>`
+export const Heading2Text = styled(Heading) <HeadingProps>`
   ${({ theme }) => H2SizeStyles(theme)}
   ${(props) => sharedStyles(props)}
 `

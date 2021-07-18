@@ -38,7 +38,6 @@ const ControlContainer = styled.div`
   ${({ theme }) => theme.mediaQueries.sm} {
     flex-direction: row;
     flex-wrap: wrap;
-    padding: 16px 32px;
   }
 `
 
@@ -105,8 +104,8 @@ const Header = styled.div`
   padding-right: 16px;
 
   ${({ theme }) => theme.mediaQueries.sm} {
-    padding-left: 24px;
-    padding-right: 24px;
+    padding-left: 0;
+    padding-right: 0;
   }
 `
 
@@ -285,6 +284,8 @@ const Farms: React.FC = () => {
         },
         sortable: column.sortable,
       }))
+
+      console.log(columns);
 
       return <Table data={rowData} columns={columns} />
     }

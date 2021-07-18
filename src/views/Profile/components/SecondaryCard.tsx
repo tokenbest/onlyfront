@@ -1,3 +1,11 @@
+/*
+ * @Author: your name
+ * @Date: 2021-07-08 12:27:41
+ * @LastEditTime: 2021-07-08 15:45:30
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \onlyfront\src\views\Profile\components\SecondaryCard.tsx
+ */
 import styled from 'styled-components'
 import { Text } from '@tokenbest/uikit'
 

@@ -4,7 +4,7 @@ import { Text, Button, Modal } from '@tokenbest/uikit'
 import ModalActions from 'components/ModalActions'
 import ModalInput from 'components/ModalInput'
 import useI18n from 'hooks/useI18n'
-import { getFullDisplayBalance,getBalanceNumber,displayExpDate } from 'utils/formatBalance'
+import { getFullDisplayBalance, getBalanceNumber, displayExpDate } from 'utils/formatBalance'
 import { StakedLock } from 'state/types'
 
 interface WithdrawModalProps {
@@ -34,9 +34,9 @@ const WithdrawModal: React.FC<WithdrawModalProps> = ({ onConfirm, onDismiss, max
     setVal(fullBalance)
   }, [fullBalance, setVal])
 
-  const renderLocks = () =>{
+  const renderLocks = () => {
     console.log(`farms.comp.weithdrawmodal--locks-->${JSON.stringify(stakedLocks)}`)
-    const locks = stakedLocks.map((staked)=>{
+    const locks = stakedLocks.map((staked) => {
       const stakeLockAmount = getBalanceNumber(staked.amount)
       const displaystakeAmount = stakeLockAmount.toLocaleString()
       const expdate = displayExpDate(new BigNumber(staked.starttime))
@@ -61,7 +61,7 @@ const WithdrawModal: React.FC<WithdrawModalProps> = ({ onConfirm, onDismiss, max
         inputTitle={TranslateString(588, 'Unstake')}
       />
       <ModalActions>
-        <Button variant="secondary" onClick={onDismiss} width="100%">
+        <Button variant="secondary" onClick={onDismiss} width="100%" style={{ background: '#003178' }}>
           {TranslateString(462, 'Cancel')}
         </Button>
         <Button

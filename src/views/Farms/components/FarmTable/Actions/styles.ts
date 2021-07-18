@@ -1,3 +1,11 @@
+/*
+ * @Author: your name
+ * @Date: 2021-07-08 12:27:41
+ * @LastEditTime: 2021-07-08 16:02:37
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \onlyfront\src\views\Farms\components\FarmTable\Actions\styles.ts
+ */
 import styled from 'styled-components'
 
 export const ActionContainer = styled.div`
@@ -12,14 +20,12 @@ export const ActionContainer = styled.div`
     margin-left: 12px;
     margin-right: 12px;
     margin-bottom: 0;
-    max-height: 100px;
   }
 
   ${({ theme }) => theme.mediaQueries.xl} {
     margin-left: 48px;
     margin-right: 0;
     margin-bottom: 0;
-    max-height: 100px;
   }
 `
 
@@ -45,7 +51,6 @@ export const ActionContent = styled.div`
 export const Earned = styled.div`
   font-weight: 600;
   font-size: 20px;
-  color: ${({ theme }) => theme.colors.text};
 `
 
 export const Staked = styled.div`

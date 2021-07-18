@@ -21,7 +21,7 @@ export interface ActionPanelProps {
 }
 
 const Container = styled.div`
-  background: ${({ theme }) => theme.colors.background};
+  background: #001533;
   display: flex;
   width: 100%;
   flex-direction: column-reverse;
@@ -71,13 +71,14 @@ const TagsContainer = styled.div`
 
 const ActionContainer = styled.div`
   display: flex;
-  flex-direction: column;
 
+  >div{
+    width:366px;
+    border-color:#39D6FE;
+    height:106px;
+  }
   ${({ theme }) => theme.mediaQueries.sm} {
-    flex-direction: row;
-    align-items: center;
-    flex-grow: 1;
-    flex-basis: 0;
+   
   }
 `
 
@@ -113,7 +114,7 @@ const ActionPanel: React.FunctionComponent<ActionPanelProps> = ({ details, apr, 
   })
   const lpAddress = farm.lpAddresses[process.env.REACT_APP_CHAIN_ID]
   const bsc = `https://bscscan.com/address/${lpAddress}`
-  const info = `https://pancakeswap.info/pair/${lpAddress}`
+  const info = `https://pancakeswap.info/pair123/${lpAddress}`
   const isCommunityFarm = communityFarms.includes(token.symbol)
 
   return (

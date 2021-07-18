@@ -15,7 +15,7 @@ const StyledCakeStats = styled(Card)`
 const Row = styled.div`
   align-items: center;
   display: flex;
-  font-size: 14px;
+  font-size: 20px;
   justify-content: space-between;
   margin-bottom: 8px;
 `
@@ -28,24 +28,24 @@ const CakeStats = () => {
 
   return (
     <StyledCakeStats>
-      <CardBody>
-        <Heading size="xl" mb="24px">
+      <CardBody style={{ padding: '50px 70px 70px' }}>
+        <Heading size="xl" mb="24px" style={{ fontSize: '24px' }}>
           {TranslateString(534, 'Stats')}
         </Heading>
         <Row>
-          <Text fontSize="14px">{TranslateString(536, 'Total Supply')}</Text>
-          {cakeSupply && <CardValue fontSize="14px" value={cakeSupply} />}
+          <Text fontSize="20px">{TranslateString(536, 'Total Supply')}</Text>
+          {cakeSupply && <CardValue fontSize="20px" value={cakeSupply} color="#3D6BF3" />}
         </Row>
         <Row>
-          <Text fontSize="14px">{TranslateString(538, 'Total Burned')}</Text>
-          <CardValue fontSize="14px" decimals={0} value={burnedBalance} />
+          <Text fontSize="20px">{TranslateString(538, 'Total Burned')}</Text>
+          <CardValue fontSize="20px" decimals={0} value={burnedBalance} color="#3D6BF3" />
         </Row>
         <Row>
-          <Text fontSize="14px">{TranslateString(540, 'New TBA/block')}</Text>
-          <CardValue fontSize="14px" decimals={0} value={10} />
+          <Text fontSize="20px">{TranslateString(540, 'New TBA/block')}</Text>
+          <CardValue fontSize="20px" decimals={0} value={10} color="#3D6BF3" />
         </Row>
       </CardBody>
-    </StyledCakeStats>
+    </StyledCakeStats >
   )
 }
 
