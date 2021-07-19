@@ -80,7 +80,7 @@ export const fetchFarmUserStakedLocks = async (account: string) => {
     })
     return locks;
   })
-  console.log(`userinfo---66->${JSON.stringify(parsedStakedLocks)}`)
+  // console.log(`userinfo---66->${JSON.stringify(parsedStakedLocks)}`)
   return parsedStakedLocks
 }
 

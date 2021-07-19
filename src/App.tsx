@@ -3,7 +3,7 @@ import { Router, Redirect, Route, Switch } from 'react-router-dom'
 import { ResetCSS } from '@tokenbest/uikit'
 import BigNumber from 'bignumber.js'
 import useEagerConnect from 'hooks/useEagerConnect'
-import { useFetchPriceList, useFetchProfile, useFetchPublicData, useTest } from 'state/hooks'
+import { useFetchPriceList, useFetchProfile, useFetchPublicData} from 'state/hooks'
 import useGetDocumentTitlePrice from './hooks/useGetDocumentTitlePrice'
 import GlobalStyle from './style/Global'
 import Menu from './components/Menu'
@@ -18,6 +18,7 @@ import history from './routerHistory'
 // Route-based code splitting
 // Only pool is included in the main bundle because of it's the most visited page
 const Home = lazy(() => import('./views/Home'))
+const WhitePaper = lazy(() => import('./views/WhitePaper'))
 const Farms = lazy(() => import('./views/Farms'))
 const Lottery = lazy(() => import('./views/Lottery'))
 const Ifos = lazy(() => import('./views/Ifos'))
@@ -41,7 +42,6 @@ const App: React.FC = () => {
     console.warn = () => null
   }, [])
 
-  useTest()
   useEagerConnect()
   useFetchPublicData()
   useFetchProfile()
@@ -60,6 +60,9 @@ const App: React.FC = () => {
             </Route>
             <Route path="/farms">
               <Farms />
+            </Route>
+            <Route path="/whitepaper">
+              <WhitePaper />
             </Route>
             <Route path="/pools">
               <Pools />
