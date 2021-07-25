@@ -1,11 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
 import useI18n from 'hooks/useI18n'
-import { LinkExternal, Text } from '@tokenbest/uikit'
+import { LinkExternal, Text, OpenNewIcon } from '@tokenbest/uikit'
 import { FarmWithStakedValue } from 'views/Farms/components/FarmCard/FarmCard'
 import getLiquidityUrlPathParts from 'utils/getLiquidityUrlPathParts'
 import { communityFarms } from 'config/constants'
-import { CommunityTag, CoreTag, DualTag } from 'components/Tags'
 
 import HarvestAction from './HarvestAction'
 import StakedAction from './StakedAction'
@@ -117,18 +116,38 @@ const ActionPanel: React.FunctionComponent<ActionPanelProps> = ({ details, apr, 
   const info = `https://pancakeswap.info/pair123/${lpAddress}`
   const isCommunityFarm = communityFarms.includes(token.symbol)
 
+  
+  const StyledLikeLink = styled.div`
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    color: #1FC7D4;
+    margin-bottom: 4px;
+    font-size: 16px;
+  `;
+
+  // imitate linke style 
+  const LikeLink: React.FC = ({ children }) => (
+    <StyledLikeLink>
+      <p>{ children }</p>
+      <OpenNewIcon color="primary" ml="4px" />
+    </StyledLikeLink>
+  )
+
   return (
     <Container>
       <InfoContainer>
         {isActive && (
-          <StakeContainer>
-            <StyledLinkExternal href={`https://exchange.pancakeswap.finance/#/add/${liquidityUrlPathParts}`}>
+          <StakeContainer as="div">
+            <LikeLink>
               {TranslateString(999, `Get ${lpLabel}`, { name: lpLabel })}
-            </StyledLinkExternal>
+            </LikeLink>
           </StakeContainer>
         )}
-        <StyledLinkExternal href={bsc}>{TranslateString(999, 'View Contract')}</StyledLinkExternal>
-        <StyledLinkExternal href={info}>{TranslateString(999, 'See Pair Info')}</StyledLinkExternal>
+        {/* <StyledLinkExternal href={bsc}>{TranslateString(999, 'View Contract')}</StyledLinkExternal> */}
+        {/* <StyledLinkExternal href={info}>{TranslateString(999, 'See Pair Info')}</StyledLinkExternal> */}
+        <LikeLink>{TranslateString(999, 'View Contract')}</LikeLink>
+        <LikeLink>{TranslateString(999, 'See Pair Info')}</LikeLink>
       </InfoContainer>
       <ValueContainer>
         <ValueWrapper>

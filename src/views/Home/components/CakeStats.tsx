@@ -34,7 +34,7 @@ const CakeStats = () => {
         </Heading>
         <Row>
           <Text fontSize="20px">{TranslateString(536, 'Total Supply')}</Text>
-          {cakeSupply && <CardValue fontSize="20px" value={cakeSupply} color="#3D6BF3" />}
+          {cakeSupply && <CardValue fontSize="20px" value={/* cakeSupply */ 0} color="#3D6BF3" />}
         </Row>
         <Row>
           <Text fontSize="20px">{TranslateString(538, 'Total Burned')}</Text>
