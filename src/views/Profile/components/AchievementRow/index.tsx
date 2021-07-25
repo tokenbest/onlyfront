@@ -1,3 +1,11 @@
+/*
+ * @Author: your name
+ * @Date: 2021-07-23 20:42:51
+ * @LastEditTime: 2021-07-23 21:47:43
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \onlyfront\src\views\Profile\components\AchievementRow\index.tsx
+ */
 import React, { useState } from 'react'
 import { useWeb3React } from '@web3-react/core'
 import styled from 'styled-components'

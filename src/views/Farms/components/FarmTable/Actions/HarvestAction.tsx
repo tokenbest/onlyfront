@@ -48,7 +48,7 @@ const HarvestAction: React.FunctionComponent<FarmWithStakedValue> = ({ pid, user
   return (
     <ActionContainer>
       <ActionTitles>
-        <Title style={{ color: '#3D6BF3', fontSize: '16px' }}>TBA </Title>
+        <Title style={{ color: '#3D6BF3', fontSize: '16px' }}>CAKE </Title>
         <Subtle style={{ color: '#3D6BF3', fontSize: '16px' }}>{TranslateString(999, 'EARNED')}</Subtle>
       </ActionTitles>
       <ActionContent>
@@ -64,7 +64,7 @@ const HarvestAction: React.FunctionComponent<FarmWithStakedValue> = ({ pid, user
             setPendingTx(false)
           }}
           ml="4px"
-          style={{ background: '#292929', color: '#000', height: '35px', padding: '0 15px', marginLeft: '15px' }}
+          style={{ background: '#292929', color: '#1FC7D4', height: '35px', padding: '0 15px', marginLeft: '15px' }}
         >
           {TranslateString(562, 'Harvest')}
         </Button>
@@ -77,7 +77,7 @@ const HarvestAction: React.FunctionComponent<FarmWithStakedValue> = ({ pid, user
               setPendingTx(false)
             }}
             ml="4px"
-            style={{ background: '#292929', color: '#000', height: '35px', padding: '0 15px' }}
+            style={{ background: '#292929', color: '#1FC7D4', height: '35px', padding: '0 15px' }}
           >
             {TranslateString(562, 'Compound')}
           </Button>

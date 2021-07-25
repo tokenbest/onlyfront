@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-07-08 12:27:41
- * @LastEditTime: 2021-07-08 15:17:55
+ * @LastEditTime: 2021-07-20 14:23:02
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \onlyfront\src\views\Farms\components\FarmTable\FarmTable.tsx
@@ -18,6 +18,16 @@ export interface ITableProps {
   columns: ColumnType<RowProps>[]
   sortColumn?: string
 }
+
+const Box = styled.div``
+
+const Img = styled.div`
+  width:162px;
+  height:68.4px;
+  background:url('/images/slices/farms.png') no-repeat;
+  background-size:100%;
+  transform: scale(0.8);
+`
 
 const Container = styled.div`
   filter: ${({ theme }) => theme.card.dropShadow};
@@ -85,19 +95,22 @@ const FarmTable: React.FC<ITableProps> = (props) => {
   }
 
   return (
-    <Container>
-      <TableContainer>
-        <TableWrapper ref={tableWrapperEl}>
-          <StyledTable>
-            <TableBody>
-              {rows.map((row) => {
-                return <Row {...row.original} key={`table-row-${row.id}`} />
-              })}
-            </TableBody>
-          </StyledTable>
-        </TableWrapper>
-      </TableContainer>
-    </Container>
+    <Box>
+      <Img />
+      <Container>
+        <TableContainer>
+          <TableWrapper ref={tableWrapperEl}>
+            <StyledTable>
+              <TableBody>
+                {rows.map((row) => {
+                  return <Row {...row.original} key={`table-row-${row.id}`} />
+                })}
+              </TableBody>
+            </StyledTable>
+          </TableWrapper>
+        </TableContainer>
+      </Container>
+    </Box>
   )
 }
 

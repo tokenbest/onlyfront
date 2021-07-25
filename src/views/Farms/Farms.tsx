@@ -167,14 +167,14 @@ const Farms: React.FC = () => {
   const farmsList = useCallback(
     (farmsToDisplay: Farm[]): FarmWithStakedValue[] => {
       let farmsToDisplayWithAPY: FarmWithStakedValue[] = farmsToDisplay.map((farm) => {
-        if (!farm.lpTotalInQuoteToken) {
+        if (!farm.lpTotalInQuoteToken || !prices) {
           return farm
         }
 
-        // let quoteTokenPriceUsd = prices[farm.quoteToken.symbol.toLowerCase()]
-        // if(farm.quoteToken.symbol==="CAKE"){
-        //   quoteTokenPriceUsd = 0.03
-        // }
+        let quoteTokenPriceUsd = prices[farm.quoteToken.symbol.toLowerCase()]
+        if(farm.quoteToken.symbol==="CAKE"){
+          quoteTokenPriceUsd = 0.03
+        }
         // const totalLiquidity = new BigNumber(farm.lpTotalInQuoteToken).times(quoteTokenPriceUsd)
         let totalLiquidity = new BigNumber(farm.tokenAmountInLp).times(cakePrice)
         let stakeLiquidity = new BigNumber(farm.tokenAmount).times(cakePrice)
@@ -184,7 +184,6 @@ const Farms: React.FC = () => {
         }
         const apr = isActive ? getFarmApr(farm.poolWeight, cakePrice, stakeLiquidity) : 0
         const apy = isActive ? getFarmApy(farm.poolWeight, cakePrice, stakeLiquidity) : 0
-        // console.log(`farms.apr-->${apr}-->${apy}---weight-->${farm.poolWeight}---cakeprice-->${cakePrice}---liquidity-->${stakeLiquidity}`)
 
         return { ...farm, apr, apy, liquidity: totalLiquidity }
       })
@@ -197,7 +196,7 @@ const Farms: React.FC = () => {
       }
       return farmsToDisplayWithAPY
     },
-    [cakePrice, query, isActive],
+    [cakePrice, prices, query, isActive],
   )
 
   const handleChangeQuery = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -218,6 +217,7 @@ const Farms: React.FC = () => {
     const tokenAddress = token.address
     const quoteTokenAddress = quoteToken.address
     const lpLabel = farm.lpSymbol && farm.lpSymbol.split(' ')[0].toUpperCase().replace('PANCAKE', '')
+
     const row: RowProps = {
       apr: {
         value: farm.apr && farm.apr.toLocaleString('en-US', { maximumFractionDigits: 2 }),

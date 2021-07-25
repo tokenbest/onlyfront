@@ -1,3 +1,11 @@
+/*
+ * @Author: your name
+ * @Date: 2021-07-23 20:42:51
+ * @LastEditTime: 2021-07-23 21:42:08
+ * @LastEditors: your name
+ * @Description: In User Settings Edit
+ * @FilePath: \onlyfront\src\views\TradingCompetition\components\PreviewComponents\PreviewSection.tsx
+ */
 import React from 'react'
 import styled from 'styled-components'
 import { Flex } from '@tokenbest/uikit'
@@ -19,7 +27,7 @@ const ChildrenWrapper = styled(Flex)`
   justify-content: center;
 `
 
-const Section: React.FC<SectionProps> = ({ children, backgroundStyle = '#faf9fa' }) => {
+const Section: React.FC<SectionProps> = ({ children, backgroundStyle = 'red' }) => {
   return (
     <BackgroundColorWrapper backgroundStyle={backgroundStyle}>
       <ChildrenWrapper>{children}</ChildrenWrapper>
