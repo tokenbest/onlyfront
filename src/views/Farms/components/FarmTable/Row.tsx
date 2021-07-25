@@ -24,14 +24,27 @@ export interface RowProps {
   details: FarmWithStakedValue
 }
 
+// const cells = {
+//   apr: Apr,
+//   apy: Apr,
+//   farm: Farm,
+//   earned: Earned,
+//   details: Details,
+//   multiplier: Multiplier,
+//   liquidity: Liquidity,
+// }
+
+
+const generateComponetFunc = (children: string) => (() => (<span style={{ color: '#3D6BF3' }}>{children}</span>))
+// TODO: 写死的数值
 const cells = {
   apr: Apr,
   apy: Apr,
   farm: Farm,
-  earned: Earned,
+  earned: generateComponetFunc('0'),
   details: Details,
   multiplier: Multiplier,
-  liquidity: Liquidity,
+  liquidity: generateComponetFunc('0'),
 }
 
 const CellInner = styled.div`
@@ -105,7 +118,10 @@ const Row: React.FunctionComponent<RowProps> = (props) => {
                   <td key={key}>
                     <CellInner>
                       <CellLayout label={TranslateString(736, 'APR')}>
-                        <Apr {...props.apr} hideButton={isMobile} />
+                        {/* <Apr {...props.apr} hideButton={isMobile} /> */}
+                        {
+                          generateComponetFunc('∞%')()
+                        }
                       </CellLayout>
                     </CellInner>
                   </td>
@@ -115,7 +131,10 @@ const Row: React.FunctionComponent<RowProps> = (props) => {
                   <td key={key}>
                     <CellInner>
                       <CellLayout label={TranslateString(736, 'APY')}>
-                        <Apr {...props.apy} hideButton={isMobile} />
+                        {/* <Apr {...props.apy} hideButton={isMobile} /> */}
+                        {
+                          generateComponetFunc('∞%')()
+                        }
                       </CellLayout>
                     </CellInner>
                   </td>
