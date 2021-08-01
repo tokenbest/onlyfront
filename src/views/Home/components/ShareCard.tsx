@@ -22,6 +22,10 @@ const StyledTotalValueLockedCard = styled(Card)`
 const Icons = styled.div`
   display: flex;
   color: red;
+
+  @media screen and (max-width: 750px) {
+    justify-content: space-around;
+  }
 `
 
 const Img1 = styled.div`

@@ -1,0 +1,19 @@
+.my-node-enter {
+  position: relative;
+  left: -1000px;
+  transition: all 2000ms;
+}
+.my-node-enter-active {
+  left: 0;
+}
+
+
+.second-enter {
+  position: relative;
+  right: -1000px;
+  transition: all 2000ms;
+}
+
+.second-enter-active {
+  right: 0;
+}
