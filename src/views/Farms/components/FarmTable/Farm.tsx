@@ -22,12 +22,12 @@ const IconImage = styled(Image)`
 `
 
 const Container = styled.div`
-  padding-left: 16px;
+  /* padding-left: 16px; */
   display: flex;
   align-items: center;
 
   ${({ theme }) => theme.mediaQueries.sm} {
-    padding-left: 32px;
+    /* padding-left: 32px; */
   }
 `
 

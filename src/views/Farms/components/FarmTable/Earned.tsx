@@ -12,6 +12,10 @@ const Amount = styled.span<{ earned: number }>`
   display: flex;
   align-items: center;
   font-size:20px;
+
+  @media screen and (max-width: 750px) {
+    font-size: 12px;
+  }
 `
 
 const Earned: React.FunctionComponent<EarnedProps> = ({ earnings }) => {

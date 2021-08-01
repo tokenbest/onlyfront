@@ -35,7 +35,7 @@ export interface RowProps {
 // }
 
 
-const generateComponetFunc = (children: string) => (() => (<span style={{ color: '#3D6BF3' }}>{children}</span>))
+const generateComponetFunc = (children: string) => (() => (<span style={{ color: '#3D6BF3', fontSize: '12px' }}>{children}</span>))
 // TODO: 写死的数值
 const cells = {
   apr: Apr,
@@ -58,23 +58,52 @@ const CellInner = styled.div`
     padding-right: 32px;
     font-size:24px;
   }
+
+  /* @media screen and (max-width: 760px) {
+    min-width: 100px;
+  } */
 `
 const StyledTr = styled.tr`
   cursor: pointer;
   border-bottom: 2px solid #29469B;
+
+  @media screen and (max-width: 750px) {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    align-items: center;
+  }
 `
 
 const EarnedMobileCell = styled.td`
   padding: 16px 0 24px 16px;
+
+  @media screen and (max-width: 750px) {
+    display: flex;
+    align-items: center;
+  }
 `
 
 const AprMobileCell = styled.td`
   padding-top: 16px;
   padding-bottom: 24px;
+
+  @media screen and (max-width: 750px) {
+    padding: 0;
+    display: flex;
+    align-items: center;
+
+    > div {
+      margin-top: -3px;
+    }
+  }
 `
 
 const FarmMobileCell = styled.td`
   padding-top: 24px;
+  @media screen and (max-width: 750px) {
+    padding: 0;
+  }
 `
 
 const Row: React.FunctionComponent<RowProps> = (props) => {
@@ -141,12 +170,12 @@ const Row: React.FunctionComponent<RowProps> = (props) => {
                 )
               default:
                 return (
-                  <td key={key}>
+                  <td key={key} >
                     <CellInner>
                       <CellLayout
                         label={TranslateString(tableSchema[columnIndex].translationId, tableSchema[columnIndex].label)}
                       >
-                        <div class-name="abc">{React.createElement(cells[key], props[key])}</div>
+                        <div style={{ width: window.innerWidth < 750 && '90px'}} class-name="abc">{React.createElement(cells[key], props[key])}</div>
                       </CellLayout>
                     </CellInner>
                   </td>
@@ -159,15 +188,15 @@ const Row: React.FunctionComponent<RowProps> = (props) => {
 
     return (
       <StyledTr onClick={toggleActionPanel}>
-        <td>
-          <tr>
+        <td style={{ display: 'flex', alignItems: 'center', flex: 1}}>
+          <tr style={{ width: window.innerWidth < 375 && '90px'}}>
             <FarmMobileCell>
               <CellLayout>
                 <Farm {...props.farm} />
               </CellLayout>
             </FarmMobileCell>
           </tr>
-          <tr>
+          <tr style={{ flex: 1, display: 'flex', justifyContent: 'space-around' }}>
             <EarnedMobileCell>
               <CellLayout label={TranslateString(1072, 'Earned')}>
                 <Earned {...props.earned} />
@@ -180,7 +209,7 @@ const Row: React.FunctionComponent<RowProps> = (props) => {
             </AprMobileCell>
           </tr>
         </td>
-        <td>
+        <td style={{ width: window.innerWidth < 750 && '36px' }}>
           <CellInner>
             <CellLayout>
               <Details actionPanelToggled={actionPanelToggled} />

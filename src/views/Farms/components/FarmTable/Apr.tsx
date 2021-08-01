@@ -38,6 +38,10 @@ const Container = styled.div`
 const AprWrapper = styled.div`
   min-width: 60px;
   text-align: left;
+
+  @media screen and (max-width: 750px) {
+    font-size: 12px;
+  }
 `
 
 const Apr: React.FC<AprProps> = ({

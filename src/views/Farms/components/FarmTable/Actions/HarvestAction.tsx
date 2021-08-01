@@ -54,7 +54,7 @@ const HarvestAction: React.FunctionComponent<FarmWithStakedValue> = ({ pid, user
       <ActionContent>
         <div>
           <Earned style={{ color: '#39D6FE', fontSize: '17px', margin: '0 0 10px 0' }}>{displayBalance}</Earned>
-          <Staked style={{ color: '#3D6BF3', fontSize: '16px' }}>~{countUp}USD</Staked>
+          <Staked style={{ color: '#3D6BF3', fontSize: window.innerWidth > 750 ? '16px' : '12px' }}>~{countUp}USD</Staked>
         </div>
         <Button
           disabled={!earnings || pendingTx || !account}

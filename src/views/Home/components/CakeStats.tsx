@@ -28,8 +28,13 @@ const CakeStats = () => {
 
   return (
     <StyledCakeStats>
-      <CardBody style={{ padding: '50px 70px 70px' }}>
-        <Heading size="xl" mb="24px" style={{ fontSize: '24px' }}>
+      <CardBody style={{
+        padding: window.innerWidth > 750 ? '50px 70px 70px' : ''
+      }}>
+        <Heading size="xl" mb="24px" style={{
+          fontSize: window.innerWidth > 750 ? '24px' : '20px',
+          marginTop: window.innerWidth > 750 ? '' : '30px'
+        }}>
           {TranslateString(534, 'Stats')}
         </Heading>
         <Row>

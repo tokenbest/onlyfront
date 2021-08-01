@@ -3,8 +3,8 @@ import styled from 'styled-components'
 import useI18n from 'hooks/useI18n'
 import { LinkExternal, Text, OpenNewIcon } from '@tokenbest/uikit'
 import { FarmWithStakedValue } from 'views/Farms/components/FarmCard/FarmCard'
-import getLiquidityUrlPathParts from 'utils/getLiquidityUrlPathParts'
-import { communityFarms } from 'config/constants'
+// import getLiquidityUrlPathParts from 'utils/getLiquidityUrlPathParts'
+// import { communityFarms } from 'config/constants'
 
 import HarvestAction from './HarvestAction'
 import StakedAction from './StakedAction'
@@ -26,15 +26,16 @@ const Container = styled.div`
   flex-direction: column-reverse;
   padding: 24px;
 
+
   ${({ theme }) => theme.mediaQueries.lg} {
     flex-direction: row;
     padding: 16px 32px;
   }
 `
 
-const StyledLinkExternal = styled(LinkExternal)`
-  font-weight: 400;
-`
+// const StyledLinkExternal = styled(LinkExternal)`
+//   font-weight: 400;
+// `
 
 const StakeContainer = styled.div`
   color: ${({ theme }) => theme.colors.text};
@@ -47,37 +48,43 @@ const StakeContainer = styled.div`
   }
 `
 
-const TagsContainer = styled.div`
-  display: flex;
-  align-items: center;
-  margin-top: 25px;
+// const TagsContainer = styled.div`
+//   display: flex;
+//   align-items: center;
+//   margin-top: 25px;
 
-  ${({ theme }) => theme.mediaQueries.sm} {
-    margin-top: 16px;
-  }
+//   ${({ theme }) => theme.mediaQueries.sm} {
+//     margin-top: 16px;
+//   }
 
-  > div {
-    height: 24px;
-    padding: 0 6px;
-    font-size: 14px;
-    margin-right: 4px;
+//   > div {
+//     height: 24px;
+//     padding: 0 6px;
+//     font-size: 14px;
+//     margin-right: 4px;
 
-    svg {
-      width: 14px;
-    }
-  }
-`
+//     svg {
+//       width: 14px;
+//     }
+//   }
+// `
 
 const ActionContainer = styled.div`
   display: flex;
 
   >div{
-    width:366px;
+    width: 336px;
     border-color:#39D6FE;
     height:106px;
   }
-  ${({ theme }) => theme.mediaQueries.sm} {
-   
+  @media screen and (min-width: 360px) and (max-width: 1365px) {
+    flex-direction: column;
+
+    > div {
+      width: 100%;
+      border-color: #002c6c;
+      margin-bottom: 20px;
+    }
   }
 `
 
@@ -105,16 +112,16 @@ const ActionPanel: React.FunctionComponent<ActionPanelProps> = ({ details, apr, 
 
   const TranslateString = useI18n()
   const isActive = farm.multiplier !== '0X'
-  const { quoteToken, token, dual } = farm
+  // const { quoteToken, token, dual } = farm
   const lpLabel = farm.lpSymbol && farm.lpSymbol.toUpperCase().replace('PANCAKE', '')
-  const liquidityUrlPathParts = getLiquidityUrlPathParts({
-    quoteTokenAddress: quoteToken.address,
-    tokenAddress: token.address,
-  })
-  const lpAddress = farm.lpAddresses[process.env.REACT_APP_CHAIN_ID]
-  const bsc = `https://bscscan.com/address/${lpAddress}`
-  const info = `https://pancakeswap.info/pair123/${lpAddress}`
-  const isCommunityFarm = communityFarms.includes(token.symbol)
+  // const liquidityUrlPathParts = getLiquidityUrlPathParts({
+  //   quoteTokenAddress: quoteToken.address,
+  //   tokenAddress: token.address,
+  // })
+  // const lpAddress = farm.lpAddresses[process.env.REACT_APP_CHAIN_ID]
+  // const bsc = `https://bscscan.com/address/${lpAddress}`
+  // const info = `https://pancakeswap.info/pair123/${lpAddress}`
+  // const isCommunityFarm = communityFarms.includes(token.symbol)
 
   
   const StyledLikeLink = styled.div`
@@ -144,8 +151,6 @@ const ActionPanel: React.FunctionComponent<ActionPanelProps> = ({ details, apr, 
             </LikeLink>
           </StakeContainer>
         )}
-        {/* <StyledLinkExternal href={bsc}>{TranslateString(999, 'View Contract')}</StyledLinkExternal> */}
-        {/* <StyledLinkExternal href={info}>{TranslateString(999, 'See Pair Info')}</StyledLinkExternal> */}
         <LikeLink>{TranslateString(999, 'View Contract')}</LikeLink>
         <LikeLink>{TranslateString(999, 'See Pair Info')}</LikeLink>
       </InfoContainer>

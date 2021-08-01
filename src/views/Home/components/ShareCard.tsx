@@ -66,12 +66,19 @@ const ShareCard = () => {
   const tvl = useTvl().toNumber().toLocaleString('en-US', { maximumFractionDigits: 0 })
   return (
     <StyledTotalValueLockedCard>
-      <CardBody style={{ width: '100%', height: '100%', padding: '55px 0 0 65px' }}>
-        <Heading size="lg" mb="30px" style={{ fontSize: '26px' }}>
+      <CardBody style={{
+        width: '100%',
+        height: '100%',
+        padding: window.innerWidth > 750 ? '55px 0 0 65px' : ''
+      }}>
+        <Heading size="lg" mb="30px" style={{
+          fontSize: window.innerWidth > 750 ? '24px' : '20px',
+          marginTop: window.innerWidth > 750 ? '' : '30px'
+        }}>
           {TranslateString(762, 'Join Community')}
         </Heading>
 
-        <Icons>
+        <Icons style={{ paddingLeft: window.innerWidth < 750 && '6px' }}>
           <Img1
             onClick={() => {
               openUrl('https://t.me/partychainclub')

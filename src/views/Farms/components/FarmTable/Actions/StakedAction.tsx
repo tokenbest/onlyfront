@@ -71,7 +71,7 @@ const Staked: React.FunctionComponent<FarmWithStakedValue> = ({ pid, lpSymbol, l
     return (
       <ActionContainer>
         <ActionTitles>
-          <Subtle style={{ color: '#3D6BF3', fontSize: '20px' }}>{TranslateString(999, 'START FARMING')}</Subtle>
+          <Subtle style={{ color: '#3D6BF3', fontSize: window.innerWidth > 750 ? '20px' : '16px' }}>{TranslateString(999, 'START FARMING')}</Subtle>
         </ActionTitles>
         <ActionContent>
           <UnlockButton width="100%" style={{ background: '#39D6FE', fontSize: '20px', height: '32px', borderRadius: '10px', margin: '10px 0 0' }} />

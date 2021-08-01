@@ -18,14 +18,22 @@ const TotalValueLockedCard = () => {
   const tvl = useTvl().toNumber().toLocaleString('en-US', { maximumFractionDigits: 0 })
   return (
     <StyledTotalValueLockedCard>
-      <CardBody style={{ width: '100%', height: '100%', padding: '55px 0 0 65px' }}>
-        <Heading size="lg" mb="24px" style={{ fontSize: '24px' }}>
+      <CardBody style={{
+        width: '100%',
+        height: '100%',
+        padding: window.innerWidth > 750 ? '55px 0 0 65px' : '',
+        
+      }}>
+        <Heading size="lg" mb="24px" style={{
+          fontSize: window.innerWidth > 750 ? '24px' : '20px',
+          marginTop: window.innerWidth > 750 ? '' : '42px'
+        }}>
           {TranslateString(762, 'Total Value Locked (TVL)')}
         </Heading>
         {tvl ? (
           <>
             <Heading size="xl" mb="24px">$0</Heading>
-            <Text color="#3D6BF3">{TranslateString(764, 'Across all LPs')}</Text>
+            <Text style={{ fontSize: window.innerWidth > 750 ? '16px' : '20px' }} color="#3D6BF3">{TranslateString(764, 'Across all LPs')}</Text>
           </>
         ) : (
           <>

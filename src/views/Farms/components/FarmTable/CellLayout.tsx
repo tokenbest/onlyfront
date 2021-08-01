@@ -6,6 +6,10 @@ const Label = styled.div`
   color: #3D6BF3;
   text-align: left;
   margin-bottom:10px;
+
+  @media screen and (max-width: 750px) {
+    font-size: 12px;
+  }
 `
 
 const ContentContainer = styled.div`
