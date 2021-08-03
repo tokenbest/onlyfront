@@ -84,9 +84,14 @@ const Home: React.FC = () => {
         }
       </div>
       <div>
-        <div className="wow slideInLeft" data-wow-delay="0.5s">
-          <Farms />
-        </div>
+        {
+          window.innerWidth < 750
+            ? <div className="wow slideInLeft" data-wow-delay="0.5s">
+                <Farms />
+              </div>
+            : <Farms />
+        }
+        
       </div>
       <div>
         {
