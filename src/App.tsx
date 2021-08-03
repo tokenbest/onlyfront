@@ -4,6 +4,7 @@ import { ResetCSS } from '@tokenbest/uikit'
 import BigNumber from 'bignumber.js'
 import useEagerConnect from 'hooks/useEagerConnect'
 import { useFetchPriceList, useFetchProfile, useFetchPublicData} from 'state/hooks'
+import Animate from 'Animate'
 import useGetDocumentTitlePrice from './hooks/useGetDocumentTitlePrice'
 import GlobalStyle from './style/Global'
 import Menu from './components/Menu'
@@ -51,6 +52,7 @@ const App: React.FC = () => {
     <Router history={history}>
       <ResetCSS />
       <GlobalStyle />
+      <Animate />
       <Menu>
         <SuspenseWithChunkError fallback={<PageLoader />}>
           <Switch>

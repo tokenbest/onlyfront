@@ -1,4 +1,4 @@
-import React, { useState , useEffect } from 'react'
+import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import { BaseLayout } from '@tokenbest/uikit'
 import Page from 'components/layout/Page'
@@ -6,9 +6,7 @@ import CakeStats from 'views/Home/components/CakeStats'
 import ShareCard from 'views/Home/components/ShareCard'
 import TotalValueLockedCard from 'views/Home/components/TotalValueLockedCard'
 import Farms from 'views/Farms'
-import { CSSTransition } from 'react-transition-group'
-import './index.css'
-
+import {WOW} from 'wowjs'
 
 
 
@@ -44,7 +42,7 @@ const Cards = styled(BaseLayout)`
  
 `
 const PhoneTSC = styled.div`
-  & > div {
+  & > .wow > div {
     margin-bottom: 10px;
     @media screen and (max-width: 750px) {
       background:url('/images/slices/table-bg.png') no-repeat;
@@ -61,10 +59,9 @@ const ImgWrapper = styled.div`
 `
 
 const Home: React.FC = () => {
-  const [show, setShow] = useState(false)
 
   useEffect(() => {
-    setShow(true)
+    new WOW().init()
   }, [])
 
   return (
@@ -76,30 +73,20 @@ const Home: React.FC = () => {
         {
           window.innerWidth < 759 && <>
           <ImgWrapper>
-            <CSSTransition
-              in={show}
-              classNames="my-node"
-              timeout={2000}
-              unmountOnExit
-            >
-              <img src="/images/wall_2.png" alt="ad" />
-            </CSSTransition>
+            <img className="wow slideInDown" data-wow-delay="0.3s" src="/images/wall_2.png" alt="ad" />
           </ImgWrapper>
           <ImgWrapper pb="42%">
-            <CSSTransition
-              in={show}
-              classNames="second"
-              timeout={2000}
-              unmountOnExit
-            >
+            <div className="wow slideInRight" data-wow-delay="0.4s">
               <img src="/images/wall_3.png" alt="ad" />
-            </CSSTransition>
+            </div>
           </ImgWrapper>
           </>
         }
       </div>
       <div>
-        <Farms />
+        <div className="wow slideInLeft" data-wow-delay="0.5s">
+          <Farms />
+        </div>
       </div>
       <div>
         {
@@ -112,9 +99,15 @@ const Home: React.FC = () => {
 
         {
           window.innerWidth < 750 && <PhoneTSC>
-            <TotalValueLockedCard />
-            <CakeStats />
-            <ShareCard />
+            <div className="wow slideInRight" data-wow-delay="0.3s">
+              <TotalValueLockedCard />
+            </div>
+            <div className="wow rollIn" data-wow-delay="0.4s">
+              <CakeStats />
+            </div>
+            <div className="wow lightSpeedIn" data-wow-delay="0.5s">
+              <ShareCard />
+            </div>
           </PhoneTSC>
         }
       </div>
