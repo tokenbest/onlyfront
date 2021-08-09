@@ -6,7 +6,6 @@ import CakeStats from 'views/Home/components/CakeStats'
 import ShareCard from 'views/Home/components/ShareCard'
 import TotalValueLockedCard from 'views/Home/components/TotalValueLockedCard'
 import Farms from 'views/Farms'
-import {WOW} from 'wowjs'
 
 
 
@@ -61,6 +60,7 @@ const ImgWrapper = styled.div`
 const Home: React.FC = () => {
 
   useEffect(() => {
+    // @ts-ignore
     new WOW().init()
   }, [])
 
