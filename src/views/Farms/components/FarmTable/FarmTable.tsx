@@ -70,6 +70,11 @@ const TableBody = styled.tbody`
       vertical-align: middle;
     }
   }
+
+  @media screen and (max-width: 750px) {
+    display: flex;
+    flex-direction: column;
+  }
 `
 
 const TableContainer = styled.div`

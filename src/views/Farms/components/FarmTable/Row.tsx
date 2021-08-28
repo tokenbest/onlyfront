@@ -225,7 +225,12 @@ const Row: React.FunctionComponent<RowProps> = (props) => {
       {handleRenderRow()}
       {actionPanelToggled && details && (
         <tr>
-          <td colSpan={8}>
+          <td
+            colSpan={window.innerWidth <= 750 ? null : 8}
+            style={{
+              display: window.innerWidth <= 750 && 'flex'
+            }}
+          >
             <ActionPanel {...props} />
           </td>
         </tr>
